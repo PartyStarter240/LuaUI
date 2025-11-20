@@ -20,7 +20,6 @@ local isStudio = RunService:IsStudio()
 local LocalPlayer = Players.LocalPlayer
 
 local windowState
-local acrylicBlur
 local hasGlobalSetting
 
 local tabs = {}
@@ -48,14 +47,13 @@ local assets = {
 --// Functions
 local function GetGui()
     local newGui = Instance.new("ScreenGui")
+    newGui.Name = "ScriptGUI"
+
     newGui.ScreenInsets = Enum.ScreenInsets.None
     newGui.ResetOnSpawn = false
     newGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     newGui.DisplayOrder = 2147483647
-
-    -- Safe parent: PlayerGui
-    local playerGui = LocalPlayer:WaitForChild("PlayerGui")
-    newGui.Parent = playerGui
+    newGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
     return newGui
 end
@@ -67,11 +65,6 @@ end
 --// Library Functions
 function MacLib:Window(Settings)
     local WindowFunctions = { Settings = Settings }
-    if Settings.AcrylicBlur ~= nil then
-        acrylicBlur = Settings.AcrylicBlur
-    else
-        acrylicBlur = true
-    end
 
     local macLib = GetGui()
 
@@ -105,7 +98,6 @@ function MacLib:Window(Settings)
     base.Name = "Base"
     base.AnchorPoint = Vector2.new(0.5, 0.5)
     base.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    base.BackgroundTransparency = Settings.AcrylicBlur and 0.05 or 0
     base.BorderColor3 = Color3.fromRGB(0, 0, 0)
     base.BorderSizePixel = 0
     base.Position = UDim2.fromScale(0.5, 0.5)
@@ -1138,7 +1130,7 @@ function MacLib:Window(Settings)
     end
 
     local function UpdateOrientation(fetchProps)
-        if not IsVisible(frame) or not acrylicBlur or unloaded then
+        if not IsVisible(frame) or unloaded then
             for _, pt in pairs(parts) do
                 pt.Parent = nil
                 DepthOfField.Enabled = false
@@ -4436,7 +4428,7 @@ function MacLib:Window(Settings)
                     labelText.RichText = true
                     labelText.Text = LabelFunctions.Settings.Text or
                         LabelFunctions.Settings
-                        .Name                    -- Settings.Name Deprecated use Settings.Text
+                        .Name -- Settings.Name Deprecated use Settings.Text
                     labelText.TextColor3 = Color3.fromRGB(255, 255, 255)
                     labelText.TextSize = 13
                     labelText.TextTransparency = 0.5
@@ -4483,7 +4475,7 @@ function MacLib:Window(Settings)
                     subLabelText.RichText = true
                     subLabelText.Text = SubLabelFunctions.Settings.Text or
                         SubLabelFunctions.Settings
-                        .Name                       -- Settings.Name Deprecated use Settings.Text
+                        .Name -- Settings.Name Deprecated use Settings.Text
                     subLabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
                     subLabelText.TextSize = 12
                     subLabelText.TextTransparency = 0.7
@@ -5391,15 +5383,6 @@ function MacLib:Window(Settings)
         MenuKeybind = Keycode
     end
 
-    function WindowFunctions:SetAcrylicBlurState(State)
-        acrylicBlur = State
-        base.BackgroundTransparency = State and 0.05 or 0
-    end
-
-    function WindowFunctions:GetAcrylicBlurState()
-        return acrylicBlur
-    end
-
     local function _SetUserInfoState(State)
         if State then
             headshot.Image = (isReady and headshotImage) or "rbxassetid://0"
@@ -5702,16 +5685,13 @@ function MacLib:Demo()
         DragStyle = 1,
         DisabledWindowControls = {},
         ShowUserInfo = true,
-        Keybind = Enum.KeyCode.RightControl,
-        AcrylicBlur = true,
+        Keybind = Enum.KeyCode.RightControl
     })
 
     local globalSettings = {
         UIBlurToggle = Window:GlobalSetting({
             Name = "UI Blur",
-            Default = Window:GetAcrylicBlurState(),
             Callback = function(bool)
-                Window:SetAcrylicBlurState(bool)
                 Window:Notify({
                     Title = Window.Settings.Title,
                     Description = (bool and "Enabled" or "Disabled") .. " UI Blur",
