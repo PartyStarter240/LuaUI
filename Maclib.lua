@@ -28,20 +28,20 @@ local tabIndex = 0
 local unloaded = false
 
 local assets = {
-    interFont = "rbxassetid://12187365364",
-    userInfoBlurred = "rbxassetid://18824089198",
-    toggleBackground = "rbxassetid://18772190202",
-    togglerHead = "rbxassetid://18772309008",
-    buttonImage = "rbxassetid://10709791437",
-    searchIcon = "rbxassetid://86737463322606",
-    colorWheel = "rbxassetid://2849458409",
-    colorTarget = "rbxassetid://73265255323268",
-    grid = "rbxassetid://121484455191370",
-    globe = "rbxassetid://108952102602834",
-    transform = "rbxassetid://90336395745819",
-    dropdown = "rbxassetid://18865373378",
-    sliderbar = "rbxassetid://18772615246",
-    sliderhead = "rbxassetid://18772834246",
+    interFont = Enum.Font.Gotham, -- instead of a custom font
+    userInfoBlurred = "",         -- just use a normal Frame or BlurEffect
+    toggleBackground = "",        -- can use a Frame with BackgroundColor3
+    togglerHead = "",             -- use a circle Frame or ImageLabel with no ID
+    buttonImage = "",             -- use a Frame with TextButton
+    searchIcon = "",              -- use Unicode magnifying glass: 🔍
+    colorWheel = "",              -- use Frames and UI gradients
+    colorTarget = "",
+    grid = "",                    -- use UIGridLayout instead of image
+    globe = "",                   -- optional: use TextLabel 🌐
+    transform = "",
+    dropdown = "",
+    sliderbar = "",
+    sliderhead = "",
 }
 
 --// Functions
@@ -489,7 +489,7 @@ function MacLib:Window(Settings)
     headshot.BorderColor3 = Color3.fromRGB(0, 0, 0)
     headshot.BorderSizePixel = 0
     headshot.Size = UDim2.fromOffset(32, 32)
-    headshot.Image = (isReady and headshotImage) or "rbxassetid://0"
+    headshot.Image = (isReady and headshotImage) or ""
 
     local uICorner3 = Instance.new("UICorner")
     uICorner3.Name = "UICorner"
@@ -3866,11 +3866,15 @@ function MacLib:Window(Settings)
 
                     local confirm = Instance.new("TextButton")
                     confirm.Name = "Confirm"
-                    confirm.FontFace = Font.new(
-                        "rbxassetid://12187365364",
-                        Enum.FontWeight.Medium,
-                        Enum.FontStyle.Normal
-                    )
+                    -- Use a standard Roblox font
+                    confirm.Font = Enum.Font.Gotham -- or Enum.Font.GothamBold, etc.
+                    confirm.Text = "Confirm"
+                    confirm.TextSize = 16
+                    confirm.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    confirm.BackgroundColor3 = Color3.fromRGB(70, 130, 255)
+                    confirm.BorderSizePixel = 0
+                    confirm.Parent = parentFrame
+
                     confirm.Text = "Confirm"
                     confirm.TextColor3 = Color3.fromRGB(255, 255, 255)
                     confirm.TextSize = 15
@@ -3900,11 +3904,7 @@ function MacLib:Window(Settings)
 
                     local cancel = Instance.new("TextButton")
                     cancel.Name = "Cancel"
-                    cancel.FontFace = Font.new(
-                        "rbxassetid://12187365364",
-                        Enum.FontWeight.Medium,
-                        Enum.FontStyle.Normal
-                    )
+                    cancel.Font = Enum.Font.Gotham -- Safe built-in Roblox font
                     cancel.Text = "Cancel"
                     cancel.TextColor3 = Color3.fromRGB(255, 255, 255)
                     cancel.TextSize = 15
@@ -3958,11 +3958,7 @@ function MacLib:Window(Settings)
 
                     local paragraphHeader = Instance.new("TextLabel")
                     paragraphHeader.Name = "ParagraphHeader"
-                    paragraphHeader.FontFace = Font.new(
-                        "rbxassetid://12187365364",
-                        Enum.FontWeight.SemiBold,
-                        Enum.FontStyle.Normal
-                    )
+                    paragraphHeader.Font = Enum.Font.GothamSemibold -- Safe built-in font
                     paragraphHeader.RichText = true
                     paragraphHeader.Text = ColorpickerFunctions.Settings.Name
                     paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -5385,7 +5381,7 @@ function MacLib:Window(Settings)
 
     local function _SetUserInfoState(State)
         if State then
-            headshot.Image = (isReady and headshotImage) or "rbxassetid://0"
+            headshot.Image = (isReady and headshotImage) or ""
             username.Text = "@" .. LocalPlayer.Name
             displayName.Text = LocalPlayer.DisplayName
         else
@@ -5730,9 +5726,10 @@ function MacLib:Demo()
     }
 
     local tabs = {
-        Main = tabGroups.TabGroup1:Tab({ Name = "Demo", Image = "rbxassetid://18821914323" }),
-        Settings = tabGroups.TabGroup1:Tab({ Name = "Settings", Image = "rbxassetid://10734950309" })
+        Main = tabGroups.TabGroup1:Tab({ Name = "Demo", Image = "" }),    -- No external asset
+        Settings = tabGroups.TabGroup1:Tab({ Name = "Settings", Image = "" }) -- No external asset
     }
+
 
     local sections = {
         MainSection1 = tabs.Main:Section({ Side = "Left" }),
