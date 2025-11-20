@@ -53,12 +53,10 @@ local function GetGui()
     newGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     newGui.DisplayOrder = 2147483647
 
-    local parent = RunService:IsStudio()
-        and LocalPlayer:FindFirstChild("PlayerGui")
-        or (gethui and gethui())
-        or (cloneref and cloneref(MacLib.GetService("CoreGui")) or MacLib.GetService("CoreGui"))
+    -- Safe parent: PlayerGui
+    local playerGui = LocalPlayer:WaitForChild("PlayerGui")
+    newGui.Parent = playerGui
 
-    newGui.Parent = parent
     return newGui
 end
 
