@@ -264,7 +264,7 @@ function MacLib:Window(Settings)
     local function applyState(button, enabled)
         local size = enabled and windowControlSettings.sizes.enabled or windowControlSettings.sizes.disabled
         local transparency = enabled and windowControlSettings.transparencies.enabled or
-        windowControlSettings.transparencies.disabled
+            windowControlSettings.transparencies.disabled
 
         button.Size = size
         button.BackgroundTransparency = transparency
@@ -668,7 +668,7 @@ function MacLib:Window(Settings)
     local function ChangeState(State)
         Tween(divider, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
             BackgroundTransparency = State == "Idle" and TweenSettings.DefaultTransparency or
-            TweenSettings.HoverTransparency
+                TweenSettings.HoverTransparency
         }):Play()
     end
 
@@ -942,16 +942,16 @@ function MacLib:Window(Settings)
         if not toggled then
             local intween = Tween(globalSettingsUIScale,
                 TweenInfo.new(0.2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
-                Scale = 1
-            })
+                    Scale = 1
+                })
             intween:Play()
             intween.Completed:Wait()
             toggled = true
         elseif toggled then
             local outtween = Tween(globalSettingsUIScale,
                 TweenInfo.new(0.2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
-                Scale = 0
-            })
+                    Scale = 0
+                })
             outtween:Play()
             outtween.Completed:Wait()
             toggled = false
@@ -1409,7 +1409,7 @@ function MacLib:Window(Settings)
             tabSwitcher.Position = UDim2.fromScale(0.5, 0)
             tabSwitcher.Size = UDim2.new(1, -21, 0, 40)
 
-            tabIndex += 1
+            tabIndex = tabIndex + 1
             tabSwitcher.LayoutOrder = tabIndex
 
             local tabSwitcherUICorner = Instance.new("UICorner")
@@ -1980,23 +1980,23 @@ function MacLib:Window(Settings)
                         end,
                         Degrees = function(sliderValue, precision)
                             local formattedValue = precision and string.format("%." .. precision .. "f", sliderValue) or
-                            tostring(sliderValue)
+                                tostring(sliderValue)
                             return formattedValue .. "°"
                         end,
                         Percent = function(sliderValue, precision)
                             local percentage = (sliderValue - SliderFunctions.Settings.Minimum) /
-                            (SliderFunctions.Settings.Maximum - SliderFunctions.Settings.Minimum) * 100
+                                (SliderFunctions.Settings.Maximum - SliderFunctions.Settings.Minimum) * 100
                             return precision and string.format("%." .. precision .. "f", percentage) .. "%" or
-                            tostring(math.round(percentage)) .. "%"
+                                tostring(math.round(percentage)) .. "%"
                         end,
                         Value = function(sliderValue, precision)
                             return precision and string.format("%." .. precision .. "f", sliderValue) or
-                            tostring(sliderValue)
+                                tostring(sliderValue)
                         end
                     }
 
                     local ValueDisplayMethod = DisplayMethods[SliderFunctions.Settings.DisplayMethod] or
-                    DisplayMethods.Value
+                        DisplayMethods.Value
                     local finalValue
 
                     local function SetValue(val, ignorecallback)
@@ -2005,21 +2005,21 @@ function MacLib:Window(Settings)
                         if typeof(val) == "Instance" then
                             local input = val
                             posXScale = math.clamp(
-                            (input.Position.X - sliderBar.AbsolutePosition.X) / sliderBar.AbsoluteSize.X, 0, 1)
+                                (input.Position.X - sliderBar.AbsolutePosition.X) / sliderBar.AbsoluteSize.X, 0, 1)
                         else
                             local value = val
                             posXScale = (value - SliderFunctions.Settings.Minimum) /
-                            (SliderFunctions.Settings.Maximum - Settings.Minimum)
+                                (SliderFunctions.Settings.Maximum - Settings.Minimum)
                         end
 
                         local pos = UDim2.new(posXScale, 0, 0.5, 0)
                         sliderHead.Position = pos
 
                         finalValue = posXScale * (SliderFunctions.Settings.Maximum - SliderFunctions.Settings.Minimum) +
-                        Settings.Minimum
+                            Settings.Minimum
 
                         sliderValue.Text = (Settings.Prefix or "") ..
-                        ValueDisplayMethod(finalValue, SliderFunctions.Settings.Precision) .. (Settings.Suffix or "")
+                            ValueDisplayMethod(finalValue, SliderFunctions.Settings.Precision) .. (Settings.Suffix or "")
 
                         if not ignorecallback then
                             task.spawn(function()
@@ -2060,7 +2060,7 @@ function MacLib:Window(Settings)
 
                             if isPercent then
                                 value = SliderFunctions.Settings.Minimum +
-                                (value / 100) * (SliderFunctions.Settings.Maximum - SliderFunctions.Settings.Minimum)
+                                    (value / 100) * (SliderFunctions.Settings.Maximum - SliderFunctions.Settings.Minimum)
                             end
 
                             local newValue = math.clamp(value, SliderFunctions.Settings.Minimum,
@@ -2088,7 +2088,7 @@ function MacLib:Window(Settings)
                         local totalWidth = sliderElements.AbsoluteSize.X
 
                         local newBarWidth = (totalWidth - (padding + sliderValueWidth + sliderNameWidth + 20)) /
-                        baseUIScale.Scale
+                            baseUIScale.Scale
                         sliderBar.Size = UDim2.new(sliderBar.Size.X.Scale, newBarWidth, sliderBar.Size.Y.Scale,
                             sliderBar.Size.Y.Offset)
                     end
@@ -2213,9 +2213,9 @@ function MacLib:Window(Settings)
                         end,
                         Numeric = function(value)
                             local result = value:match("^%-?%d*$") and value or
-                            value:gsub("[^%d-]", ""):gsub("(%-)", function(match, pos)
-                                return pos == 1 and match or ""
-                            end)
+                                value:gsub("[^%d-]", ""):gsub("(%-)", function(match, pos)
+                                    return pos == 1 and match or ""
+                                end)
                             return applyCharacterLimit(result)
                         end,
                         Alphabetic = function(value)
@@ -2232,7 +2232,7 @@ function MacLib:Window(Settings)
                         AcceptedCharacters = InputFunctions.Settings.AcceptedCharacters
                     else
                         AcceptedCharacters = CharacterSubs[InputFunctions.Settings.AcceptedCharacters] or
-                        CharacterSubs.All
+                            CharacterSubs.All
                     end
 
                     InputBox.AutomaticSize = Enum.AutomaticSize.X
@@ -2520,8 +2520,8 @@ function MacLib:Window(Settings)
                     dropdownName.Name = "DropdownName"
                     dropdownName.FontFace = Font.new(assets.interFont)
                     dropdownName.Text = Settings.Default and
-                    (DropdownFunctions.Settings.Name .. " • " .. table.concat(Selected, ", ")) or
-                    (DropdownFunctions.Settings.Name .. "...")
+                        (DropdownFunctions.Settings.Name .. " • " .. table.concat(Selected, ", ")) or
+                        (DropdownFunctions.Settings.Name .. "...")
                     dropdownName.RichText = true
                     dropdownName.TextColor3 = Color3.fromRGB(255, 255, 255)
                     dropdownName.TextSize = 13
@@ -2641,12 +2641,12 @@ function MacLib:Window(Settings)
                         local totalHeight = 0
                         local visibleChildrenCount = 0
                         local padding = dropdownFrameUIPadding.PaddingTop.Offset +
-                        dropdownFrameUIPadding.PaddingBottom.Offset
+                            dropdownFrameUIPadding.PaddingBottom.Offset
 
                         for _, v in pairs(dropdownFrame:GetChildren()) do
                             if not v:IsA("UIComponent") and v.Visible then
-                                totalHeight += v.AbsoluteSize.Y
-                                visibleChildrenCount += 1
+                                totalHeight = totalHeight + v.AbsoluteSize.Y
+                                visibleChildrenCount = visibleChildrenCount + 1
                             end
                         end
 
@@ -2708,13 +2708,14 @@ function MacLib:Window(Settings)
                                     if name ~= optionName then
                                         Tween(opt.Checkmark,
                                             TweenInfo.new(tweensettings.duration, tweensettings.easingStyle), {
-                                            Size = UDim2.new(opt.Checkmark.Size.X.Scale, tweensettings.checkSizeDecrease,
-                                                opt.Checkmark.Size.Y.Scale, opt.Checkmark.Size.Y.Offset)
-                                        }):Play()
+                                                Size = UDim2.new(opt.Checkmark.Size.X.Scale,
+                                                    tweensettings.checkSizeDecrease,
+                                                    opt.Checkmark.Size.Y.Scale, opt.Checkmark.Size.Y.Offset)
+                                            }):Play()
                                         Tween(opt.NameLabel,
                                             TweenInfo.new(tweensettings.duration, tweensettings.easingStyle), {
-                                            TextTransparency = tweensettings.transparencyOut
-                                        }):Play()
+                                                TextTransparency = tweensettings.transparencyOut
+                                            }):Play()
                                         opt.Checkmark.TextTransparency = 1
                                     end
                                 end
@@ -2768,16 +2769,16 @@ function MacLib:Window(Settings)
                         local defaultDropdownSize = 38
                         local isDropdownOpen = not dropped
                         local targetSize = isDropdownOpen and UDim2.new(1, 0, 0, CalculateDropdownSize()) or
-                        UDim2.new(1, 0, 0, defaultDropdownSize)
+                            UDim2.new(1, 0, 0, defaultDropdownSize)
 
                         local dropTween = Tween(dropdown,
                             TweenInfo.new(0.2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
-                            Size = targetSize
-                        })
+                                Size = targetSize
+                            })
                         local iconTween = Tween(dropdownImage,
                             TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                            Rotation = isDropdownOpen and -90 or 0
-                        })
+                                Rotation = isDropdownOpen and -90 or 0
+                            })
 
                         dropTween:Play()
                         iconTween:Play()
@@ -4436,7 +4437,8 @@ function MacLib:Window(Settings)
                     labelText.FontFace = Font.new(assets.interFont)
                     labelText.RichText = true
                     labelText.Text = LabelFunctions.Settings.Text or
-                    LabelFunctions.Settings.Name                                   -- Settings.Name Deprecated use Settings.Text
+                        LabelFunctions.Settings
+                        .Name                    -- Settings.Name Deprecated use Settings.Text
                     labelText.TextColor3 = Color3.fromRGB(255, 255, 255)
                     labelText.TextSize = 13
                     labelText.TextTransparency = 0.5
@@ -4482,7 +4484,8 @@ function MacLib:Window(Settings)
                     subLabelText.FontFace = Font.new(assets.interFont)
                     subLabelText.RichText = true
                     subLabelText.Text = SubLabelFunctions.Settings.Text or
-                    SubLabelFunctions.Settings.Name                                         -- Settings.Name Deprecated use Settings.Text
+                        SubLabelFunctions.Settings
+                        .Name                       -- Settings.Name Deprecated use Settings.Text
                     subLabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
                     subLabelText.TextSize = 12
                     subLabelText.TextTransparency = 0.7
@@ -5355,7 +5358,7 @@ function MacLib:Window(Settings)
         WindowFunctions:Notify({
             Title = Settings.Title,
             Description = (state and "Maximized " or "Minimized ") ..
-            "the menu. Use " .. tostring(MenuKeybind.Name) .. " to toggle it.",
+                "the menu. Use " .. tostring(MenuKeybind.Name) .. " to toggle it.",
             Lifetime = 5
         })
     end
@@ -5594,9 +5597,11 @@ function MacLib:Window(Settings)
     end
 
     function MacLib:SaveConfig(Path)
-        if isStudio or not writefile then return "Config system unavailable." end
+        if isStudio or not writefile then
+            return "Config system unavailable."
+        end
 
-        if (not Path) then
+        if not Path then
             return false, "Please select a config file."
         end
 
@@ -5607,10 +5612,10 @@ function MacLib:Window(Settings)
         }
 
         for flag, option in next, MacLib.Options do
-            if not ClassParser[option.Class] then continue end
-            if option.IgnoreConfig then continue end
-
-            table.insert(data.objects, ClassParser[option.Class].Save(flag, option))
+            -- Only proceed if the option class exists and is not ignored
+            if ClassParser[option.Class] and not option.IgnoreConfig then
+                table.insert(data.objects, ClassParser[option.Class].Save(flag, option))
+            end
         end
 
         local success, encoded = pcall(HttpService.JSONEncode, HttpService, data)
@@ -5650,7 +5655,7 @@ function MacLib:Window(Settings)
         if isStudio or not (isfolder and listfiles) then return "Config system unavailable." end
 
         local list = (isfolder(MacLib.Folder) and isfolder(MacLib.Folder .. "/settings")) and
-        listfiles(MacLib.Folder .. "/settings") or {}
+            listfiles(MacLib.Folder .. "/settings") or {}
 
         local out = {}
         for i = 1, #list do
