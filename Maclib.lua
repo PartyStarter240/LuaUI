@@ -146,7 +146,7 @@ function MacLib:Window(Settings)
     dividerInteract.BackgroundTransparency = 1
     dividerInteract.BorderColor3 = Color3.fromRGB(0, 0, 0)
     dividerInteract.BorderSizePixel = 0
-    dividerInteract.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+    dividerInteract.Font = Enum.Font.SourceSans
     dividerInteract.Position = UDim2.fromScale(0.5, 0)
     dividerInteract.Size = UDim2.new(1, 6, 1, 0)
     dividerInteract.Text = ""
@@ -197,7 +197,7 @@ function MacLib:Window(Settings)
 
     local exit = Instance.new("TextButton")
     exit.Name = "Exit"
-    exit.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+    exit.Font = Enum.Font.SourceSans
     exit.Text = ""
     exit.TextColor3 = Color3.fromRGB(0, 0, 0)
     exit.TextSize = 14
@@ -215,7 +215,7 @@ function MacLib:Window(Settings)
 
     local minimize = Instance.new("TextButton")
     minimize.Name = "Minimize"
-    minimize.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+    minimize.Font = Enum.Font.SourceSans
     minimize.Text = ""
     minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
     minimize.TextSize = 14
@@ -234,7 +234,7 @@ function MacLib:Window(Settings)
 
     local maximize = Instance.new("TextButton")
     maximize.Name = "Maximize"
-    maximize.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+    maximize.Font = Enum.Font.SourceSans
     maximize.Text = ""
     maximize.TextColor3 = Color3.fromRGB(0, 0, 0)
     maximize.TextSize = 14
@@ -378,11 +378,7 @@ function MacLib:Window(Settings)
 
     local title = Instance.new("TextLabel")
     title.Name = "Title"
-    title.FontFace = Font.new(
-        assets.interFont,
-        Enum.FontWeight.SemiBold,
-        Enum.FontStyle.Normal
-    )
+    title.Font = assets.interFont
     title.Text = Settings.Title
     title.TextColor3 = Color3.fromRGB(255, 255, 255)
     title.RichText = true
@@ -401,11 +397,7 @@ function MacLib:Window(Settings)
 
     local subtitle = Instance.new("TextLabel")
     subtitle.Name = "Subtitle"
-    subtitle.FontFace = Font.new(
-        assets.interFont,
-        Enum.FontWeight.Medium,
-        Enum.FontStyle.Normal
-    )
+    subtitle.Font = assets.interFont
     subtitle.RichText = true
     subtitle.Text = Settings.Subtitle
     subtitle.RichText = true
@@ -516,11 +508,7 @@ function MacLib:Window(Settings)
 
     local displayName = Instance.new("TextLabel")
     displayName.Name = "DisplayName"
-    displayName.FontFace = Font.new(
-        assets.interFont,
-        Enum.FontWeight.SemiBold,
-        Enum.FontStyle.Normal
-    )
+    displayName.Font = assets.interFont
     displayName.Text = LocalPlayer.DisplayName
     displayName.TextColor3 = Color3.fromRGB(255, 255, 255)
     displayName.TextSize = 13
@@ -550,11 +538,7 @@ function MacLib:Window(Settings)
 
     local username = Instance.new("TextLabel")
     username.Name = "Username"
-    username.FontFace = Font.new(
-        assets.interFont,
-        Enum.FontWeight.SemiBold,
-        Enum.FontStyle.Normal
-    )
+    username.Font = assets.interFont
     username.Text = "@" .. LocalPlayer.Name
     username.TextColor3 = Color3.fromRGB(255, 255, 255)
     username.TextSize = 12
@@ -746,7 +730,7 @@ function MacLib:Window(Settings)
 
     local interact = Instance.new("TextButton")
     interact.Name = "Interact"
-    interact.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+    interact.Font = Enum.Font.SourceSans
     interact.Text = ""
     interact.TextColor3 = Color3.fromRGB(0, 0, 0)
     interact.TextSize = 14
@@ -853,7 +837,7 @@ function MacLib:Window(Settings)
 
     local currentTab = Instance.new("TextLabel")
     currentTab.Name = "CurrentTab"
-    currentTab.FontFace = Font.new(assets.interFont)
+    currentTab.Font = assets.interFont
     currentTab.RichText = true
     currentTab.Text = ""
     currentTab.RichText = true
@@ -1193,7 +1177,7 @@ function MacLib:Window(Settings)
         local GlobalSettingFunctions = {}
         local globalSetting = Instance.new("TextButton")
         globalSetting.Name = "GlobalSetting"
-        globalSetting.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+        globalSetting.Font = Enum.Font.SourceSans
         globalSetting.Text = ""
         globalSetting.TextColor3 = Color3.fromRGB(0, 0, 0)
         globalSetting.TextSize = 14
@@ -1210,7 +1194,7 @@ function MacLib:Window(Settings)
 
         local settingName = Instance.new("TextLabel")
         settingName.Name = "SettingName"
-        settingName.FontFace = Font.new(assets.interFont)
+        settingName.Font = assets.interFont
         settingName.Text = Settings.Name
         settingName.RichText = true
         settingName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1239,11 +1223,7 @@ function MacLib:Window(Settings)
 
         local checkmark = Instance.new("TextLabel")
         checkmark.Name = "Checkmark"
-        checkmark.FontFace = Font.new(
-            assets.interFont,
-            Enum.FontWeight.Medium,
-            Enum.FontStyle.Normal
-        )
+        checkmark.Font = assets.interFont
         checkmark.Text = "✓"
         checkmark.TextColor3 = Color3.fromRGB(255, 255, 255)
         checkmark.TextSize = 13
@@ -1386,7 +1366,7 @@ function MacLib:Window(Settings)
             local TabFunctions = { Settings = Settings }
             local tabSwitcher = Instance.new("TextButton")
             tabSwitcher.Name = "TabSwitcher"
-            tabSwitcher.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+            tabSwitcher.Font = Enum.Font.SourceSans
             tabSwitcher.Text = ""
             tabSwitcher.TextColor3 = Color3.fromRGB(0, 0, 0)
             tabSwitcher.TextSize = 14
@@ -1438,11 +1418,7 @@ function MacLib:Window(Settings)
 
             local tabSwitcherName = Instance.new("TextLabel")
             tabSwitcherName.Name = "TabSwitcherName"
-            tabSwitcherName.FontFace = Font.new(
-                assets.interFont,
-                Enum.FontWeight.Medium,
-                Enum.FontStyle.Normal
-            )
+            tabSwitcherName.Font = assets.interFont
             tabSwitcherName.Text = Settings.Name
             tabSwitcherName.RichText = true
             tabSwitcherName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1608,7 +1584,7 @@ function MacLib:Window(Settings)
 
                     local buttonInteract = Instance.new("TextButton")
                     buttonInteract.Name = "ButtonInteract"
-                    buttonInteract.FontFace = Font.new(assets.interFont)
+                    buttonInteract.Font = assets.interFont
                     buttonInteract.RichText = true
                     buttonInteract.TextColor3 = Color3.fromRGB(255, 255, 255)
                     buttonInteract.TextSize = 13
@@ -1703,7 +1679,7 @@ function MacLib:Window(Settings)
 
                     local toggleName = Instance.new("TextLabel")
                     toggleName.Name = "ToggleName"
-                    toggleName.FontFace = Font.new(assets.interFont)
+                    toggleName.Font = assets.interFont
                     toggleName.Text = ToggleFunctions.Settings.Name
                     toggleName.RichText = true
                     toggleName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1847,7 +1823,7 @@ function MacLib:Window(Settings)
 
                     local sliderName = Instance.new("TextLabel")
                     sliderName.Name = "SliderName"
-                    sliderName.FontFace = Font.new(assets.interFont)
+                    sliderName.Font = assets.interFont
                     sliderName.Text = SliderFunctions.Settings.Name
                     sliderName.RichText = true
                     sliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1877,7 +1853,7 @@ function MacLib:Window(Settings)
 
                     local sliderValue = Instance.new("TextBox")
                     sliderValue.Name = "SliderValue"
-                    sliderValue.FontFace = Font.new(assets.interFont)
+                    sliderValue.Font = assets.interFont
                     sliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
                     sliderValue.TextSize = 12
                     sliderValue.TextTransparency = 0.1
@@ -2124,7 +2100,7 @@ function MacLib:Window(Settings)
 
                     local inputName = Instance.new("TextLabel")
                     inputName.Name = "InputName"
-                    inputName.FontFace = Font.new(assets.interFont)
+                    inputName.Font = assets.interFont
                     inputName.Text = InputFunctions.Settings.Name
                     inputName.RichText = true
                     inputName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -2144,7 +2120,7 @@ function MacLib:Window(Settings)
 
                     local inputBox = Instance.new("TextBox")
                     inputBox.Name = "InputBox"
-                    inputBox.FontFace = Font.new(assets.interFont)
+                    inputBox.Font = assets.interFont
                     inputBox.Text = "Hello world!"
                     inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputBox.TextSize = 12
@@ -2306,7 +2282,7 @@ function MacLib:Window(Settings)
 
                     local keybindName = Instance.new("TextLabel")
                     keybindName.Name = "KeybindName"
-                    keybindName.FontFace = Font.new(assets.interFont)
+                    keybindName.Font = assets.interFont
                     keybindName.Text = KeybindFunctions.Settings.Name
                     keybindName.RichText = true
                     keybindName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -2327,7 +2303,7 @@ function MacLib:Window(Settings)
                     local binderBox = Instance.new("TextBox")
                     binderBox.Name = "BinderBox"
                     binderBox.CursorPosition = -1
-                    binderBox.FontFace = Font.new(assets.interFont)
+                    binderBox.Font = assets.interFont
                     binderBox.PlaceholderText = "..."
                     binderBox.Text = ""
                     binderBox.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -2495,7 +2471,7 @@ function MacLib:Window(Settings)
 
                     local interact = Instance.new("TextButton")
                     interact.Name = "Interact"
-                    interact.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+                    interact.Font = Enum.Font.SourceSans
                     interact.Text = ""
                     interact.TextColor3 = Color3.fromRGB(0, 0, 0)
                     interact.TextSize = 14
@@ -2508,7 +2484,7 @@ function MacLib:Window(Settings)
 
                     local dropdownName = Instance.new("TextLabel")
                     dropdownName.Name = "DropdownName"
-                    dropdownName.FontFace = Font.new(assets.interFont)
+                    dropdownName.Font = assets.interFont
                     dropdownName.Text = Settings.Default and
                         (DropdownFunctions.Settings.Name .. " • " .. table.concat(Selected, ", ")) or
                         (DropdownFunctions.Settings.Name .. "...")
@@ -2610,11 +2586,7 @@ function MacLib:Window(Settings)
                     local searchBox = Instance.new("TextBox")
                     searchBox.Name = "SearchBox"
                     searchBox.CursorPosition = -1
-                    searchBox.FontFace = Font.new(
-                        assets.interFont,
-                        Enum.FontWeight.Medium,
-                        Enum.FontStyle.Normal
-                    )
+                    searchBox.Font = assets.interFont
                     searchBox.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)
                     searchBox.PlaceholderText = "Search..."
                     searchBox.Text = ""
@@ -2793,7 +2765,7 @@ function MacLib:Window(Settings)
                     local function addOption(i, v)
                         local option = Instance.new("TextButton")
                         option.Name = "Option"
-                        option.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+                        option.Font = Enum.Font.SourceSans
                         option.Text = ""
                         option.TextColor3 = Color3.fromRGB(0, 0, 0)
                         option.TextSize = 14
@@ -2810,7 +2782,7 @@ function MacLib:Window(Settings)
 
                         local optionName = Instance.new("TextLabel")
                         optionName.Name = "OptionName"
-                        optionName.FontFace = Font.new(assets.interFont)
+                        optionName.Font = assets.interFont
                         optionName.Text = v
                         optionName.RichText = true
                         optionName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -2838,7 +2810,7 @@ function MacLib:Window(Settings)
 
                         local checkmark = Instance.new("TextLabel")
                         checkmark.Name = "Checkmark"
-                        checkmark.FontFace = Font.new(assets.interFont)
+                        checkmark.Font = assets.interFont
                         checkmark.Text = "✓"
                         checkmark.TextColor3 = Color3.fromRGB(255, 255, 255)
                         checkmark.TextSize = 13
@@ -3086,7 +3058,7 @@ function MacLib:Window(Settings)
 
                     local colorpickerName = Instance.new("TextLabel")
                     colorpickerName.Name = "KeybindName"
-                    colorpickerName.FontFace = Font.new(assets.interFont)
+                    colorpickerName.Font = assets.interFont
                     colorpickerName.Text = Settings.Name
                     colorpickerName.TextColor3 = Color3.fromRGB(255, 255, 255)
                     colorpickerName.TextSize = 13
@@ -3133,7 +3105,7 @@ function MacLib:Window(Settings)
 
                     local interact = Instance.new("TextButton")
                     interact.Name = "Interact"
-                    interact.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+                    interact.Font = Enum.Font.SourceSans
                     interact.Text = ""
                     interact.TextColor3 = Color3.fromRGB(0, 0, 0)
                     interact.TextSize = 14
@@ -3213,7 +3185,7 @@ function MacLib:Window(Settings)
 
                     local value = Instance.new("TextButton")
                     value.Name = "Value"
-                    value.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+                    value.Font = Enum.Font.SourceSans
                     value.Text = ""
                     value.TextColor3 = Color3.fromRGB(0, 0, 0)
                     value.TextSize = 14
@@ -3350,7 +3322,7 @@ function MacLib:Window(Settings)
 
                     local inputName = Instance.new("TextLabel")
                     inputName.Name = "InputName"
-                    inputName.FontFace = Font.new(assets.interFont)
+                    inputName.Font = assets.interFont
                     inputName.Text = "Red"
                     inputName.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputName.TextSize = 13
@@ -3380,7 +3352,7 @@ function MacLib:Window(Settings)
                     inputBox.Name = "InputBox"
                     inputBox.ClearTextOnFocus = false
                     inputBox.CursorPosition = -1
-                    inputBox.FontFace = Font.new(assets.interFont)
+                    inputBox.Font = assets.interFont
                     inputBox.Text = "255"
                     inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputBox.TextSize = 12
@@ -3434,7 +3406,7 @@ function MacLib:Window(Settings)
 
                     local inputName1 = Instance.new("TextLabel")
                     inputName1.Name = "InputName"
-                    inputName1.FontFace = Font.new(assets.interFont)
+                    inputName1.Font = assets.interFont
                     inputName1.Text = "Green"
                     inputName1.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputName1.TextSize = 13
@@ -3463,7 +3435,7 @@ function MacLib:Window(Settings)
                     local inputBox1 = Instance.new("TextBox")
                     inputBox1.Name = "InputBox"
                     inputBox1.ClearTextOnFocus = false
-                    inputBox1.FontFace = Font.new(assets.interFont)
+                    inputBox1.Font = assets.interFont
                     inputBox1.Text = "255"
                     inputBox1.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputBox1.TextSize = 12
@@ -3517,7 +3489,7 @@ function MacLib:Window(Settings)
 
                     local inputName2 = Instance.new("TextLabel")
                     inputName2.Name = "InputName"
-                    inputName2.FontFace = Font.new(assets.interFont)
+                    inputName2.Font = assets.interFont
                     inputName2.Text = "Blue"
                     inputName2.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputName2.TextSize = 13
@@ -3546,7 +3518,7 @@ function MacLib:Window(Settings)
                     local inputBox2 = Instance.new("TextBox")
                     inputBox2.Name = "InputBox"
                     inputBox2.ClearTextOnFocus = false
-                    inputBox2.FontFace = Font.new(assets.interFont)
+                    inputBox2.Font = assets.interFont
                     inputBox2.Text = "255"
                     inputBox2.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputBox2.TextSize = 12
@@ -3601,7 +3573,7 @@ function MacLib:Window(Settings)
 
                     local inputName3 = Instance.new("TextLabel")
                     inputName3.Name = "InputName"
-                    inputName3.FontFace = Font.new(assets.interFont)
+                    inputName3.Font = assets.interFont
                     inputName3.Text = "Alpha"
                     inputName3.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputName3.TextSize = 13
@@ -3630,7 +3602,7 @@ function MacLib:Window(Settings)
                     local inputBox3 = Instance.new("TextBox")
                     inputBox3.Name = "InputBox"
                     inputBox3.ClearTextOnFocus = false
-                    inputBox3.FontFace = Font.new(assets.interFont)
+                    inputBox3.Font = assets.interFont
                     inputBox3.Text = "0"
                     inputBox3.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputBox3.TextSize = 12
@@ -3683,7 +3655,7 @@ function MacLib:Window(Settings)
 
                     local inputName4 = Instance.new("TextLabel")
                     inputName4.Name = "InputName"
-                    inputName4.FontFace = Font.new(assets.interFont)
+                    inputName4.Font = assets.interFont
                     inputName4.Text = "Hex"
                     inputName4.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputName4.TextSize = 13
@@ -3713,7 +3685,7 @@ function MacLib:Window(Settings)
                     inputBox4.Name = "InputBox"
                     inputBox4.ClearTextOnFocus = false
                     inputBox4.CursorPosition = -1
-                    inputBox4.FontFace = Font.new(assets.interFont)
+                    inputBox4.Font = assets.interFont
                     inputBox4.Text = "255"
                     inputBox4.TextColor3 = Color3.fromRGB(255, 255, 255)
                     inputBox4.TextSize = 12
@@ -4371,11 +4343,7 @@ function MacLib:Window(Settings)
 
                     local headerText = Instance.new("TextLabel")
                     headerText.Name = "HeaderText"
-                    headerText.FontFace = Font.new(
-                        assets.interFont,
-                        Enum.FontWeight.Medium,
-                        Enum.FontStyle.Normal
-                    )
+                    headerText.Font = assets.interFont
                     headerText.RichText = true
                     headerText.Text = HeaderFunctions.Settings.Text or HeaderFunctions.Settings.Name
                     headerText.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -4420,7 +4388,7 @@ function MacLib:Window(Settings)
 
                     local labelText = Instance.new("TextLabel")
                     labelText.Name = "LabelText"
-                    labelText.FontFace = Font.new(assets.interFont)
+                    labelText.Font = assets.interFont
                     labelText.RichText = true
                     labelText.Text = LabelFunctions.Settings.Text or
                         LabelFunctions.Settings
@@ -4467,7 +4435,7 @@ function MacLib:Window(Settings)
 
                     local subLabelText = Instance.new("TextLabel")
                     subLabelText.Name = "SubLabelText"
-                    subLabelText.FontFace = Font.new(assets.interFont)
+                    subLabelText.Font = assets.interFont
                     subLabelText.RichText = true
                     subLabelText.Text = SubLabelFunctions.Settings.Text or
                         SubLabelFunctions.Settings
@@ -4514,11 +4482,7 @@ function MacLib:Window(Settings)
 
                     local paragraphHeader = Instance.new("TextLabel")
                     paragraphHeader.Name = "ParagraphHeader"
-                    paragraphHeader.FontFace = Font.new(
-                        assets.interFont,
-                        Enum.FontWeight.Medium,
-                        Enum.FontStyle.Normal
-                    )
+                    paragraphHeader.Font = assets.interFont
                     paragraphHeader.RichText = true
                     paragraphHeader.Text = ParagraphFunctions.Settings.Header
                     paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -4542,7 +4506,7 @@ function MacLib:Window(Settings)
 
                     local paragraphBody = Instance.new("TextLabel")
                     paragraphBody.Name = "ParagraphBody"
-                    paragraphBody.FontFace = Font.new(assets.interFont)
+                    paragraphBody.Font = assets.interFont
                     paragraphBody.RichText = true
                     paragraphBody.Text = ParagraphFunctions.Settings.Body
                     paragraphBody.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -4876,11 +4840,7 @@ function MacLib:Window(Settings)
 
         local notificationTitle = Instance.new("TextLabel")
         notificationTitle.Name = "NotificationTitle"
-        notificationTitle.FontFace = Font.new(
-            assets.interFont,
-            Enum.FontWeight.SemiBold,
-            Enum.FontStyle.Normal
-        )
+        notificationTitle.Font = assets.interFont
         notificationTitle.RichText = true
         notificationTitle.Text = Settings.Title
         notificationTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -4905,11 +4865,7 @@ function MacLib:Window(Settings)
 
         local notificationDescription = Instance.new("TextLabel")
         notificationDescription.Name = "NotificationDescription"
-        notificationDescription.FontFace = Font.new(
-            assets.interFont,
-            Enum.FontWeight.Medium,
-            Enum.FontStyle.Normal
-        )
+        notificationDescription.Font = assets.interFont
         notificationDescription.Text = Settings.Description
         notificationDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
         notificationDescription.TextSize = 11
@@ -4954,7 +4910,7 @@ function MacLib:Window(Settings)
 
         local interactable = Instance.new("TextButton")
         interactable.Name = "Interactable"
-        interactable.FontFace = Font.new(assets.interFont)
+        interactable.Font = assets.interFont
         interactable.Text = "✓"
         interactable.TextColor3 = Color3.fromRGB(255, 255, 255)
         interactable.TextSize = 17
@@ -5118,11 +5074,7 @@ function MacLib:Window(Settings)
 
         local paragraphHeader = Instance.new("TextLabel")
         paragraphHeader.Name = "ParagraphHeader"
-        paragraphHeader.FontFace = Font.new(
-            assets.interFont,
-            Enum.FontWeight.Medium,
-            Enum.FontStyle.Normal
-        )
+        paragraphHeader.Font = assets.interFont
         paragraphHeader.RichText = true
         paragraphHeader.Text = Settings.Title
         paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -5145,7 +5097,7 @@ function MacLib:Window(Settings)
 
         local paragraphBody = Instance.new("TextLabel")
         paragraphBody.Name = "ParagraphBody"
-        paragraphBody.FontFace = Font.new(assets.interFont)
+        paragraphBody.Font = assets.interFont
         paragraphBody.RichText = true
         paragraphBody.Text = Settings.Description
         paragraphBody.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -5220,7 +5172,7 @@ function MacLib:Window(Settings)
         for _, v in pairs(Settings.Buttons) do
             local button = Instance.new("TextButton")
             button.Name = "Button"
-            button.FontFace = Font.new(assets.interFont)
+            button.Font = assets.interFont
             button.Text = v.Name
             button.TextColor3 = Color3.fromRGB(255, 255, 255)
             button.TextSize = 15
@@ -5726,7 +5678,7 @@ function MacLib:Demo()
     }
 
     local tabs = {
-        Main = tabGroups.TabGroup1:Tab({ Name = "Demo", Image = "" }),    -- No external asset
+        Main = tabGroups.TabGroup1:Tab({ Name = "Demo", Image = "" }),        -- No external asset
         Settings = tabGroups.TabGroup1:Tab({ Name = "Settings", Image = "" }) -- No external asset
     }
 
